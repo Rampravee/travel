@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/9898920326.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>Staybnb</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+        .header{
+            min-height: 100vh;
+            width: 100%;
+            background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url(banner.png);
+            background-size: cover;
+            background-position: center;
+        }
+        nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 7%;
+        }
+        .logo{
+            width: 140px;
+            cursor: pointer;
+        }
+        .nav-links li{
+            list-style: none;
+            display: inline-block;
+            margin: 10px 30px;
+        }
+        .nav-links li a{
+            text-decoration: none;
+            color: #fff;
+        }
+        .register-btn{
+            background: #fff;
+            color: #000;
+            padding: 8px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .container{
+            padding: 0 7%;
+        }
+        .header h1{
+            font-size: 4vw;
+            font-weight: 500;
+            color: #fff;
+            text-align: center;
+            padding-top: 22%;
+        }
+        .search-bar{
+            background: #fff;
+            width: 70%;
+            margin: 30px auto;
+            padding: 6px 10px 6px 30px;
+            border-radius: 50px;
+        }
+        .search-bar form{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .search-bar form input{
+            display: block;
+            border: 0;
+            outline: none;
+            background: transparent;
+        }
+        .search-bar form button{
+            background: #ff5361;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            border: 0;
+            outline: none;
+            cursor: pointer;
+        }
+        .search-bar form button img{
+            width: 15px;
+            margin-top: 7px;
+        }
+        .location-input{
+            flex: 1;
+        }
+        .search-bar form label{
+            font-weight: 600;
+        }
+        .sub-title{
+            margin: 50px 0 20px;
+            font-size: 2.2vw;
+            font-weight: 500;
+            color: #333;
+        }
+        .exclusives{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 30px;
+        }
+        .exclusives div img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .exclusives div{
+            position: relative;
+        }
+        .exclusives div span{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            color: #fff;
+        }
+        .trending{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 30px;
+            margin-bottom: 30px;
+        }
+        .trending div img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .trending h3{
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .cta{
+            margin: 80px 0;
+            background-image: linear-gradient(to right, #3f2321, transparent),url(banner-2.png);
+            background-size: cover;
+            background-position: center;
+            border-radius: 10px;
+            padding: 5%;
+            color: #fff;
+        }
+        .cta h3{
+            font-size: 4vw;
+            line-height: 5.3vw;
+            font-weight: 500;
+        }
+        .cta p{
+            font-size: 18px;
+            margin: 10px 0;
+        }
+        .cta-btn{
+            background: #ff5361;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 30px;
+            border-radius: 8px;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .stories{
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-gap: 30px;
+            margin-bottom: 30px;
+        }
+        .stories div img{
+            width: 100%;
+            border-radius: 10px;
+        }
+        .stories div{
+            position: relative;
+            text-align: center;
+        }
+        .stories p{
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            color: #fff;
+            font-size: 26px;
+        }
+        .start-btn{
+            text-decoration: none;
+            background: #ff5361;
+            color: #fff;
+            width: 80%;
+            max-width: 350px;
+            display: block;
+            text-align: center;
+            margin: 60px auto;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 20px;    
+        }
+        .about-msg{
+            text-align: center;
+            margin: 80px 0;
+            color: #333;
+            font-size: 17px;
+        }
+        .about-msg h2{
+            font-size: 28px;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+        .footer{
+            margin: 80px 0 10px;
+            text-align: center;
+        }
+        .footer a{
+            text-decoration: none;
+            color: #999;
+            font-size: 22px;
+            margin: 0 10px;
+        }
+        .footer hr{
+            background: #999;
+            height: 1px;
+            width: 100%;
+            border: 0;
+            margin: 20px 0;
+        }
+        .footer p{
+            padding-bottom: 15px;
+        }
+        .active{
+            position: relative;
+        }
+        .active::after{
+            content: '';
+            background: #fff;
+            width: 25px;
+            height: 2px;
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: -12px;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <img src="logo.png" class="logo">
+            <ul class="nav-links">
+                <li><a href="#" class="active">Popular Places</a></li>
+                <li><a href="#">Travel Outside</a></li>
+                <li><a href="#">Online Packages</a></li>
+            </ul>
+            <a href="#" class="register-btn">Register Now</a>
+        </nav>
+        <div class="container">
+            <h1>Find Your Next Stay</h1>
+            <div class="search-bar">
+                <form>
+                    <div class="location-input">
+                        <label>Location</label>
+                        <input type="text" placeholder="Where are you going?">
+                    </div>
+                    <div>
+                        <label>Check in</label>
+                        <input type="text" placeholder="Add Date">
+                    </div>
+                    <div>
+                        <label>Check out</label>
+                        <input type="text" placeholder="Add Date">
+                    </div>
+                    <div>
+                        <label>Guest</label>
+                        <input type="text" placeholder="Add Guest">
+                    </div>
+                    <button type="submit"><img src="search.png" alt=""></button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="sub-title">Exclusives</h2>
+        <div class="exclusives">
+            <div>
+                <img src="image-1.png" alt="">
+                <span>
+                    <h3>London</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-2.png" alt="">
+                <span>
+                    <h3>Switzerland</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-3.png" alt="">
+                <span>
+                    <h3>Australia</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-4.png" alt="">
+                <span>
+                    <h3>France</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-5.png" alt="">
+                <span>
+                    <h3>Amsterdam</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-6.png" alt="">
+                <span>
+                    <h3>Netherland</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-7.png" alt="">
+                <span>
+                    <h3>New York</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-8.png" alt="">
+                <span>
+                    <h3>Chicago</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-9.png" alt="">
+                <span>
+                    <h3>San Francisco</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+            <div>
+                <img src="image-10.png" alt="">
+                <span>
+                    <h3>Shanghai</h3>
+                    <p>Starts @ $250</p>
+                </span>
+            </div>
+        </div>
+        <h2 class="sub-title">Trending Places</h2>
+        <div class="trending">
+            <div>
+                <img src="dubai.png" alt="">
+                <h3>Dubai</h3>
+            </div>
+            <div>
+                <img src="new-york.png" alt="">
+                <h3>New York</h3>
+            </div>
+            <div>
+                <img src="paris.png" alt="">
+                <h3>Paris</h3>
+            </div>
+            <div>
+                <img src="new-delhi.png" alt="">
+                <h3>New Delhi</h3>
+            </div>
+        </div>
+        <div class="cta">
+            <h3>Sharing <br>Is Earning Now</h3>
+            <p>Great opportunity to make money by <br>sharing your extra space.</p>
+            <a href="#" class="cta-btn">Know More</a>
+        </div>
+        <h2 class="sub-title">Travellers Stories</h2>
+        <div class="stories">
+            <div>
+                <img src="story-1.png" alt="">
+                <p>Popular European countries with a budget <br> of just $10,000</p>
+            </div>
+            <div>
+                <img src="story-2.png" alt="">
+                <p>Travelled more than 100 Countries in less than a <br> year</p>
+            </div>
+            <div>
+                <img src="story-3.png" alt="">
+                <p>Best experience you get while traveling to <br> Thailand</p>
+            </div>
+        </div>
+        <a href="#" class="start-btn">Start making money</a>
+        <div class="about-msg">
+            <h2>About Staybnb</h2>
+            <p>Pack your bags. We're going on vacation! That's exactly what an effective travel website should make you feel. It should activate the travel bug with vibrant imagery and vivid copy. And while photos can do a lot of the work in inspiring visitors, a travel site can't accomplish its purpose without great web design. For a travel site, this means that design can be the determining factor in whether a visitor trusts recommendations and information. O r even visit a city or country altogether.</p>
+        </div>
+        <div class="footer">
+            <a href="https://facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+            <a href="https://youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://twitter.com/"><i class="fa-brands fa-twitter"></i></a>
+            <a href="https://linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="https://instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <hr>
+            <p>Copyright @ 2022, Staybnb.</p>
+        </div>
+    </div>
+</body>
+</html>
